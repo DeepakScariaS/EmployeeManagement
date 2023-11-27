@@ -4,6 +4,7 @@ package com.example.EmployeeManagementSystem.controller;
 import com.example.EmployeeManagementSystem.dto.request.EmployeeRequestDTO;
 import com.example.EmployeeManagementSystem.dto.response.EmployeeResponseDTO;
 import com.example.EmployeeManagementSystem.entity.Employee;
+import com.example.EmployeeManagementSystem.exception.InvalidAgeException;
 import com.example.EmployeeManagementSystem.service.impl.EmployeeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class EmployeeController {
     EmployeeServiceImpl employeeServiceImpl;
 
     @PostMapping("/addEmployee")
-    public ResponseEntity<EmployeeResponseDTO<Employee>> addEmployee(@RequestBody EmployeeRequestDTO employeeRequestDTO){
+    public ResponseEntity<EmployeeResponseDTO<Employee>> addEmployee(@RequestBody EmployeeRequestDTO employeeRequestDTO) throws InvalidAgeException {
         EmployeeResponseDTO<Employee> employeeResponseDTO=employeeServiceImpl.addEmployee(employeeRequestDTO);
         return ResponseEntity.ok(employeeResponseDTO);
     }
