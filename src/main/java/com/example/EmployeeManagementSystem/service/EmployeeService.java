@@ -16,4 +16,5 @@ public interface EmployeeService {
     public EmployeeResponseDTO<Employee> update(long id,EmployeeRequestDTO employeeRequestDTO);
 
     public EmployeeResponseDTO<Employee> delete(long id);
+
 }
