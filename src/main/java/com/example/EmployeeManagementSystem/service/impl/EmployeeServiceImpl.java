@@ -8,7 +8,7 @@ import com.example.EmployeeManagementSystem.exception.EmployeeNotFoundException;
 import com.example.EmployeeManagementSystem.exception.InvalidAgeException;
 import com.example.EmployeeManagementSystem.repository.EmployeeRepository;
 import com.example.EmployeeManagementSystem.service.EmployeeService;
-import lombok.Data;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,8 +57,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public EmployeeResponseDTO<Employee> delete(long id) {
-        Employee employee = employeeRepository.findById(id).orElse(null);
-        employeeRepository.delete(employee);
-        return new EmployeeResponseDTO<Employee>(true, "Deleted Successfully", employee);
+
+                employeeRepository.deleteById(id);
+        return new EmployeeResponseDTO<Employee>(true, "Deleted Successfully", null);
     }
 }

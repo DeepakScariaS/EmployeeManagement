@@ -3,17 +3,14 @@ package com.example.EmployeeManagementSystem.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
-import jdk.jfr.Name;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Table(name="employee")
 public class Employee {
     @Id
